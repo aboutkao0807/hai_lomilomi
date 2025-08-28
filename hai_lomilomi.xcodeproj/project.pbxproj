@@ -1,0 +1,696 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E24725532E58138400F92262 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E24725522E58138400F92262 /* SnapKit */; };
+		E2B629692E595B5E00CE0B3A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = E2B629682E595B5E00CE0B3A /* FirebaseAuth */; };
+		E2B6296D2E595E5A00CE0B3A /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = E2B6296C2E595E5A00CE0B3A /* FirebaseFirestore */; };
+		E2B6296F2E595E6300CE0B3A /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = E2B6296E2E595E6300CE0B3A /* FirebaseStorage */; };
+		E2B629712E595E7100CE0B3A /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = E2B629702E595E7100CE0B3A /* FirebaseDatabase */; };
+		E2B629732E595E7D00CE0B3A /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = E2B629722E595E7D00CE0B3A /* FirebaseFunctions */; };
+		E2B629752E595E8500CE0B3A /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = E2B629742E595E8500CE0B3A /* FirebaseMessaging */; };
+		E2B6297A2E59647E00CE0B3A /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = E2B629792E59647E00CE0B3A /* GoogleSignIn */; };
+		E2B6297C2E59647E00CE0B3A /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E2B6297B2E59647E00CE0B3A /* GoogleSignInSwift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E247252E2E5809E900F92262 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E247250F2E5809E500F92262 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E24725162E5809E500F92262;
+			remoteInfo = hai_lomilomi;
+		};
+		E24725382E5809E900F92262 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E247250F2E5809E500F92262 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E24725162E5809E500F92262;
+			remoteInfo = hai_lomilomi;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E24725172E5809E500F92262 /* hai_lomilomi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hai_lomilomi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E247252D2E5809E900F92262 /* hai_lomilomiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = hai_lomilomiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E24725372E5809E900F92262 /* hai_lomilomiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = hai_lomilomiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		E247253F2E5809E900F92262 /* Exceptions for "hai_lomilomi" folder in "hai_lomilomi" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = E24725162E5809E500F92262 /* hai_lomilomi */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		E24725192E5809E500F92262 /* hai_lomilomi */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				E247253F2E5809E900F92262 /* Exceptions for "hai_lomilomi" folder in "hai_lomilomi" target */,
+			);
+			path = hai_lomilomi;
+			sourceTree = "<group>";
+		};
+		E24725302E5809E900F92262 /* hai_lomilomiTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = hai_lomilomiTests;
+			sourceTree = "<group>";
+		};
+		E247253A2E5809E900F92262 /* hai_lomilomiUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = hai_lomilomiUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E24725142E5809E500F92262 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2B6297C2E59647E00CE0B3A /* GoogleSignInSwift in Frameworks */,
+				E2B629712E595E7100CE0B3A /* FirebaseDatabase in Frameworks */,
+				E2B6297A2E59647E00CE0B3A /* GoogleSignIn in Frameworks */,
+				E24725532E58138400F92262 /* SnapKit in Frameworks */,
+				E2B629752E595E8500CE0B3A /* FirebaseMessaging in Frameworks */,
+				E2B6296F2E595E6300CE0B3A /* FirebaseStorage in Frameworks */,
+				E2B629732E595E7D00CE0B3A /* FirebaseFunctions in Frameworks */,
+				E2B629692E595B5E00CE0B3A /* FirebaseAuth in Frameworks */,
+				E2B6296D2E595E5A00CE0B3A /* FirebaseFirestore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E247252A2E5809E900F92262 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E24725342E5809E900F92262 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E247250E2E5809E500F92262 = {
+			isa = PBXGroup;
+			children = (
+				E24725192E5809E500F92262 /* hai_lomilomi */,
+				E24725302E5809E900F92262 /* hai_lomilomiTests */,
+				E247253A2E5809E900F92262 /* hai_lomilomiUITests */,
+				E24725512E58138400F92262 /* Frameworks */,
+				E24725182E5809E500F92262 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E24725182E5809E500F92262 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E24725172E5809E500F92262 /* hai_lomilomi.app */,
+				E247252D2E5809E900F92262 /* hai_lomilomiTests.xctest */,
+				E24725372E5809E900F92262 /* hai_lomilomiUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E24725512E58138400F92262 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E24725162E5809E500F92262 /* hai_lomilomi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E24725402E5809E900F92262 /* Build configuration list for PBXNativeTarget "hai_lomilomi" */;
+			buildPhases = (
+				E24725132E5809E500F92262 /* Sources */,
+				E24725142E5809E500F92262 /* Frameworks */,
+				E24725152E5809E500F92262 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				E24725192E5809E500F92262 /* hai_lomilomi */,
+			);
+			name = hai_lomilomi;
+			packageProductDependencies = (
+				E24725522E58138400F92262 /* SnapKit */,
+				E2B629682E595B5E00CE0B3A /* FirebaseAuth */,
+				E2B6296C2E595E5A00CE0B3A /* FirebaseFirestore */,
+				E2B6296E2E595E6300CE0B3A /* FirebaseStorage */,
+				E2B629702E595E7100CE0B3A /* FirebaseDatabase */,
+				E2B629722E595E7D00CE0B3A /* FirebaseFunctions */,
+				E2B629742E595E8500CE0B3A /* FirebaseMessaging */,
+				E2B629792E59647E00CE0B3A /* GoogleSignIn */,
+				E2B6297B2E59647E00CE0B3A /* GoogleSignInSwift */,
+			);
+			productName = hai_lomilomi;
+			productReference = E24725172E5809E500F92262 /* hai_lomilomi.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E247252C2E5809E900F92262 /* hai_lomilomiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E24725452E5809E900F92262 /* Build configuration list for PBXNativeTarget "hai_lomilomiTests" */;
+			buildPhases = (
+				E24725292E5809E900F92262 /* Sources */,
+				E247252A2E5809E900F92262 /* Frameworks */,
+				E247252B2E5809E900F92262 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E247252F2E5809E900F92262 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				E24725302E5809E900F92262 /* hai_lomilomiTests */,
+			);
+			name = hai_lomilomiTests;
+			packageProductDependencies = (
+			);
+			productName = hai_lomilomiTests;
+			productReference = E247252D2E5809E900F92262 /* hai_lomilomiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E24725362E5809E900F92262 /* hai_lomilomiUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E24725482E5809E900F92262 /* Build configuration list for PBXNativeTarget "hai_lomilomiUITests" */;
+			buildPhases = (
+				E24725332E5809E900F92262 /* Sources */,
+				E24725342E5809E900F92262 /* Frameworks */,
+				E24725352E5809E900F92262 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E24725392E5809E900F92262 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				E247253A2E5809E900F92262 /* hai_lomilomiUITests */,
+			);
+			name = hai_lomilomiUITests;
+			packageProductDependencies = (
+			);
+			productName = hai_lomilomiUITests;
+			productReference = E24725372E5809E900F92262 /* hai_lomilomiUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E247250F2E5809E500F92262 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1640;
+				LastUpgradeCheck = 1640;
+				TargetAttributes = {
+					E24725162E5809E500F92262 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					E247252C2E5809E900F92262 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = E24725162E5809E500F92262;
+					};
+					E24725362E5809E900F92262 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = E24725162E5809E500F92262;
+					};
+				};
+			};
+			buildConfigurationList = E24725122E5809E500F92262 /* Build configuration list for PBXProject "hai_lomilomi" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E247250E2E5809E500F92262;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				E247254B2E580E0F00F92262 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				E247254C2E580FA600F92262 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				E2B629782E59647E00CE0B3A /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = E24725182E5809E500F92262 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E24725162E5809E500F92262 /* hai_lomilomi */,
+				E247252C2E5809E900F92262 /* hai_lomilomiTests */,
+				E24725362E5809E900F92262 /* hai_lomilomiUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E24725152E5809E500F92262 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E247252B2E5809E900F92262 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E24725352E5809E900F92262 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E24725132E5809E500F92262 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E24725292E5809E900F92262 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E24725332E5809E900F92262 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E247252F2E5809E900F92262 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E24725162E5809E500F92262 /* hai_lomilomi */;
+			targetProxy = E247252E2E5809E900F92262 /* PBXContainerItemProxy */;
+		};
+		E24725392E5809E900F92262 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E24725162E5809E500F92262 /* hai_lomilomi */;
+			targetProxy = E24725382E5809E900F92262 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		E24725412E5809E900F92262 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = hai_lomilomi/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "hai-lomilomi.hai-lomilomi";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E24725422E5809E900F92262 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = hai_lomilomi/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "hai-lomilomi.hai-lomilomi";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E24725432E5809E900F92262 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 6G98BMX3LA;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E24725442E5809E900F92262 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 6G98BMX3LA;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E24725462E5809E900F92262 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6G98BMX3LA;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "hai-lomilomi.hai-lomilomiTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/hai_lomilomi.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/hai_lomilomi";
+			};
+			name = Debug;
+		};
+		E24725472E5809E900F92262 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6G98BMX3LA;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "hai-lomilomi.hai-lomilomiTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/hai_lomilomi.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/hai_lomilomi";
+			};
+			name = Release;
+		};
+		E24725492E5809E900F92262 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6G98BMX3LA;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "hai-lomilomi.hai-lomilomiUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = hai_lomilomi;
+			};
+			name = Debug;
+		};
+		E247254A2E5809E900F92262 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6G98BMX3LA;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "hai-lomilomi.hai-lomilomiUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = hai_lomilomi;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E24725122E5809E500F92262 /* Build configuration list for PBXProject "hai_lomilomi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E24725432E5809E900F92262 /* Debug */,
+				E24725442E5809E900F92262 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E24725402E5809E900F92262 /* Build configuration list for PBXNativeTarget "hai_lomilomi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E24725412E5809E900F92262 /* Debug */,
+				E24725422E5809E900F92262 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E24725452E5809E900F92262 /* Build configuration list for PBXNativeTarget "hai_lomilomiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E24725462E5809E900F92262 /* Debug */,
+				E24725472E5809E900F92262 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E24725482E5809E900F92262 /* Build configuration list for PBXNativeTarget "hai_lomilomiUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E24725492E5809E900F92262 /* Debug */,
+				E247254A2E5809E900F92262 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E247254B2E580E0F00F92262 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		E247254C2E580FA600F92262 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.1.0;
+			};
+		};
+		E2B629782E59647E00CE0B3A /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E24725522E58138400F92262 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E247254B2E580E0F00F92262 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		E2B629682E595B5E00CE0B3A /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E247254C2E580FA600F92262 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		E2B6296C2E595E5A00CE0B3A /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E247254C2E580FA600F92262 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		E2B6296E2E595E6300CE0B3A /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E247254C2E580FA600F92262 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		E2B629702E595E7100CE0B3A /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E247254C2E580FA600F92262 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		E2B629722E595E7D00CE0B3A /* FirebaseFunctions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E247254C2E580FA600F92262 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFunctions;
+		};
+		E2B629742E595E8500CE0B3A /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E247254C2E580FA600F92262 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		E2B629792E59647E00CE0B3A /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E2B629782E59647E00CE0B3A /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		E2B6297B2E59647E00CE0B3A /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E2B629782E59647E00CE0B3A /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = E247250F2E5809E500F92262 /* Project object */;
+}
