@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             FirebaseApp.configure()
             //測試用，啟動就登出，FirebaseAuth會自動存入本機
-            do { try Auth.auth().signOut() } catch { print("SignOut error:", error) }
+            //do { try Auth.auth().signOut() } catch { print("SignOut error:", error) }
 
             return true
         }

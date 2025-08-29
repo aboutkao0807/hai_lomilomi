@@ -20,11 +20,6 @@ final class LoginViewModel {
                    return
                }
         
-//        if let _ = Auth.auth().currentUser {
-//            // 已經登入過
-//            onProceedToRegister?()
-//            return
-//        }
         // 尚未登入->先走 Google
                onLoading?(true)
                auth.signInGoogle(presenting: presenting) { [weak self] result in

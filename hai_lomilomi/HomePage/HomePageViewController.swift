@@ -1,5 +1,7 @@
 import UIKit
 import SnapKit
+import FirebaseAuth
+import GoogleSignIn
 
 struct HomeItem {
     let title: String
@@ -7,6 +9,8 @@ struct HomeItem {
 }
 
 final class HomePageViewController: UIViewController {
+    
+    private let viewModel = HomePageViewModel()
 
     private var items: [HomeItem] = [
         .init(title: "歡迎回來", subtitle: "這裡是你的首頁。"),
@@ -30,6 +34,17 @@ final class HomePageViewController: UIViewController {
         cv.register(HomeCell.self, forCellWithReuseIdentifier: HomeCell.reuseID)
         return cv
     }()
+    
+    //登出鈕
+    private let logoutButton: UIButton = {
+          let btn = UIButton(type: .system)
+          btn.setTitle("登出", for: .normal)
+          btn.backgroundColor = .systemRed
+          btn.setTitleColor(.white, for: .normal)
+          btn.layer.cornerRadius = 10
+          btn.heightAnchor.constraint(equalToConstant: 48).isActive = true
+          return btn
+      }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +55,49 @@ final class HomePageViewController: UIViewController {
         collectionView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
+        // 登出鈕放最上層，固定在底部
+               view.addSubview(logoutButton)
+               logoutButton.snp.makeConstraints { make in
+                   make.left.right.equalToSuperview().inset(24)
+                   make.bottom.equalTo(view.safeAreaLayoutGuide).inset(16)
+               }
+               view.bringSubviewToFront(logoutButton)
+        
+        // 讓列表底部留白，不被按鈕擋住
+                collectionView.contentInset.bottom = 16 + 50 + 16   // 下邊距 + 按鈕高 + 上邊距
+                collectionView.scrollIndicatorInsets.bottom = collectionView.contentInset.bottom
+                // 登出事件
+                logoutButton.addTarget(self, action: #selector(logoutTapped), for: .touchUpInside)
+        bindVM()
     }
+    
+    @objc private func logoutTapped() {
+        
+        viewModel.logoutTapped()
+        }
+    
+    private func signOutAndBackToLogin() {
+          // Firebase & Google 登出
+          do { try Auth.auth().signOut() } catch { print("SignOut error:", error) }
+          GIDSignIn.sharedInstance.signOut()
+
+          // 換回登入頁（避免可返回）
+          let login = LoginViewController()
+          let root = UINavigationController(rootViewController: login)
+          if let window = view.window ?? UIApplication.shared.windows.first {
+              window.rootViewController = root
+              UIView.transition(with: window, duration: 0.25, options: .transitionCrossDissolve, animations: nil)
+              window.makeKeyAndVisible()
+          }
+      }
+    
+    private func bindVM() {
+          viewModel.onSignedOut = { [weak self] in
+              guard let self = self else { return }
+              AppRouter.setRoot(.login, from: self.view)
+          }
+          viewModel.onError = { [weak self] msg in self?.showAlert(title: "錯誤", message: msg) }
+      }
 }
 
 //DataSource / Delegate
@@ -59,7 +116,7 @@ extension HomePageViewController: UICollectionViewDataSource, UICollectionViewDe
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         print("點到：\(items[indexPath.item].title)")
-        // TODO: 導到對應頁面
+        // 導到對應頁面
     }
 }
 

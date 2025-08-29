@@ -3,6 +3,7 @@
 import Foundation
 import FirebaseAuth
 import FirebaseFirestore
+import FirebaseDatabase
 
 enum RegisterError: LocalizedError {
     case notLoggedIn
@@ -37,43 +38,81 @@ final class RegisterViewModel {
     }
 
     func submit() {
-        guard let user = Auth.auth().currentUser else {
-            onError?(RegisterError.notLoggedIn.localizedDescription); return
-        }
-        let nameTrim = name.trimmingCharacters(in: .whitespacesAndNewlines)
-        let phoneTrim = phone.trimmingCharacters(in: .whitespacesAndNewlines)
-
-        guard !nameTrim.isEmpty else {
-            onError?(RegisterError.invalid("請輸入姓名").localizedDescription); return
-        }
-        guard !phoneTrim.isEmpty else {
-            onError?(RegisterError.invalid("請輸入電話").localizedDescription); return
-        }
-
+        guard let user = Auth.auth().currentUser else { onError?("尚未登入"); return }
+        let uid = user.uid
         onLoading?(true)
-        let now = FieldValue.serverTimestamp()
-        let doc = db.collection("users").document(user.uid)
+        let ref = Firestore.firestore().collection("users").document(uid)
 
-        let data: [String: Any] = [
-            "uid": user.uid,
-            "name": nameTrim,
-            "phone": phoneTrim,
-            "email": user.email ?? "",
-            "role": "customer",            // 先預設為一般會員
-            "points": 0,
-            "status": "active",
-            "updatedAt": now,
-            "createdAt": now
-        ]
-
-        doc.setData(data, merge: true) { [weak self] err in
+        ref.getDocument { [weak self] snap, err in
             guard let self = self else { return }
-            self.onLoading?(false)
-            if let err = err {
-                self.onError?(RegisterError.firestore(err.localizedDescription).localizedDescription)
-            } else {
+            if let err = err { self.onLoading?(false); self.onError?("查詢失敗：\(err.localizedDescription)"); return }
+
+            if snap?.exists == true {
+                self.onLoading?(false)
+                self.onError?("此帳號已完成註冊，將直接帶您回首頁")
+                self.onSuccess?() // 或直接導首頁
+                return
+            }
+
+            // 帳號不存在 → 建立會員
+            let now = FieldValue.serverTimestamp()
+            let data: [String: Any] = [
+                "uid": uid,
+                "email": user.email ?? "",
+                "name": self.name.trimmingCharacters(in: .whitespaces),
+                "phone": self.phone.trimmingCharacters(in: .whitespaces),
+                "role": "customer",
+                "points": 0,
+                "status": "active",
+                "createdAt": now,
+                "updatedAt": now
+            ]
+            ref.setData(data, merge: false) { err in
+                self.onLoading?(false)
+                if let err = err { self.onError?("註冊失敗：\(err.localizedDescription)"); return }
                 self.onSuccess?()
             }
         }
     }
+    
+    func createUserIfNotExists(
+        uid: String,
+        data: [String: Any],
+        completion: @escaping (Result<Void, Error>) -> Void
+    ) {
+        let db  = Firestore.firestore()
+        let ref = db.collection("users").document(uid)
+
+        db.runTransaction({ (tx, errorPointer) -> Any? in
+            do {
+                let snap = try tx.getDocument(ref)
+                if snap.exists {
+                    // 已存在的話，透過 errorPointer 回傳錯誤
+                    let err = NSError(
+                        domain: "Register",
+                        code: 409,
+                        userInfo: [NSLocalizedDescriptionKey: "已註冊"]
+                    )
+                    errorPointer?.pointee = err
+                    return nil
+                }
+
+                // 不存在的話，建立
+                tx.setData(data, forDocument: ref)
+                return nil
+            } catch let e {
+                // getDocument 失敗也要透過 errorPointer 回傳
+                errorPointer?.pointee = e as NSError
+                return nil
+            }
+        }, completion: { _, error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
+            }
+        })
+    }
+
+
 }

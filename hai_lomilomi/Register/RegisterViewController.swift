@@ -3,6 +3,9 @@
 import UIKit
 import SnapKit
 import Foundation
+import FirebaseAuth
+import FirebaseFirestore
+
 
 final class RegisterViewController: UIViewController {
 
@@ -117,4 +120,34 @@ final class RegisterViewController: UIViewController {
             navigationController?.setViewControllers([home], animated: true)
         }
     }
+    @objc private func handleSubmit() {
+        guard let uid = Auth.auth().currentUser?.uid else {
+            showAlert(title: "錯誤", message: "尚未登入")
+            return
+        }
+        
+        let userData: [String: Any] = [
+            "name": nameField.text ?? "",
+            "phone": phoneField.text ?? "",
+            "email": Auth.auth().currentUser?.email ?? "",
+            "createdAt": FieldValue.serverTimestamp()
+        ]
+        
+        let vm = RegisterViewModel()
+        vm.createUserIfNotExists(uid: uid, data: userData) { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success:
+                    self?.showAlert(title: "成功", message: "註冊完成") {
+                        // 註冊完成後導回首頁
+                        let home = HomePageViewController()
+                        self?.navigationController?.setViewControllers([home], animated: true)
+                    }
+                case .failure(let error):
+                    self?.showAlert(title: "失敗", message: error.localizedDescription)
+                }
+            }
+        }
+    }
+
 }

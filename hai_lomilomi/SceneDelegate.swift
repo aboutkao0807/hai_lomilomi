@@ -15,25 +15,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        let window = UIWindow(windowScene: windowScene)
+        let win = UIWindow(windowScene: windowScene)
+        self.window = win
         
         // 檢查是否已登入
              if let user = Auth.auth().currentUser {
                  print("使用者已登入：\(user.email ?? user.uid)")
-                 // TODO: 進主畫面⬇️
-                // window?.rootViewController = MainTabBarController()
+                 //進主畫面
+                 win.rootViewController = UINavigationController(rootViewController: HomePageViewController())
              } else {
                  // 未登入 → 進登入頁
-                 let root = UINavigationController(rootViewController: LoginViewController())
-                 window.rootViewController = root
-                 window.makeKeyAndVisible()
-                 self.window = window
+                 win.rootViewController = UINavigationController(rootViewController: LoginViewController())
              }
+        win.makeKeyAndVisible()
     }
     
     func scene(_ scene: UIScene,
