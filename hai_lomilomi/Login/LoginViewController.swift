@@ -49,6 +49,7 @@ final class LoginViewController: UIViewController {
         setupUI()
         setupActions()
         bindViewModel()
+        enableTapToDismissKeyboard()
     }
 
     private func setupUI() {

@@ -2,6 +2,7 @@ import UIKit
 import SnapKit
 import FirebaseAuth
 import GoogleSignIn
+import FirebaseFirestore
 
 struct HomeItem {
     let title: String
@@ -11,9 +12,19 @@ struct HomeItem {
 final class HomePageViewController: UIViewController {
     
     private let viewModel = HomePageViewModel()
+    private let db = Firestore.firestore()
+    
+    // 歡迎使用者
+      private let greetingLabel: UILabel = {
+          let lb = UILabel()
+          lb.font = .boldSystemFont(ofSize: 24)
+          lb.textAlignment = .left
+          lb.text = "Hi!"
+          return lb
+      }()
 
     private var items: [HomeItem] = [
-        .init(title: "歡迎回來", subtitle: "這裡是你的首頁。"),
+        .init(title: "我的預約", subtitle: "查看已預約時間"),
         .init(title: "最新公告", subtitle: "本週優惠：回饋點數加倍。"),
         .init(title: "預約提醒", subtitle: "您明天 15:00 有一筆按摩預約。"),
         .init(title: "小知識", subtitle: "深層組織按摩有助於舒緩長期肌肉緊繃。")
@@ -51,10 +62,18 @@ final class HomePageViewController: UIViewController {
         view.backgroundColor = .systemBackground
         navigationItem.title = "首頁"
 
-        view.addSubview(collectionView)
-        collectionView.snp.makeConstraints { make in
-            make.edges.equalTo(view.safeAreaLayoutGuide)
-        }
+        // collectionView 在 greetingLabel 下方
+        view.addSubview(greetingLabel)
+            greetingLabel.snp.makeConstraints { make in
+                make.top.equalTo(view.safeAreaLayoutGuide).offset(16)
+                make.left.right.equalToSuperview().inset(16)
+            }
+            view.addSubview(collectionView)
+            collectionView.snp.makeConstraints { make in
+                make.top.equalTo(greetingLabel.snp.bottom).offset(16)
+                make.left.right.bottom.equalToSuperview()
+            }
+        
         // 登出鈕放最上層，固定在底部
                view.addSubview(logoutButton)
                logoutButton.snp.makeConstraints { make in
@@ -69,6 +88,32 @@ final class HomePageViewController: UIViewController {
                 // 登出事件
                 logoutButton.addTarget(self, action: #selector(logoutTapped), for: .touchUpInside)
         bindVM()
+        fetchUserName()
+    }
+    
+    /// 從 Firestore 抓使用者名稱
+    private func fetchUserName() {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+           db.collection("users").document(uid).getDocument { [weak self] snap, error in
+               guard let self = self else { return }
+               if let data = snap?.data() {
+                   let name = data["name"] as? String ?? ""
+                   let role = data["role"] as? String ?? "user"
+                   //預設
+                   self.greetingLabel.text = "Hi, \(name)!"
+                   // 如果是 owner，顏色變黃色
+                   if role == "owner" {
+                       self.greetingLabel.textColor = .systemYellow
+                       self.greetingLabel.text = (self.greetingLabel.text ?? "") + "👑"
+                   } else {
+                       // 如果是 user，顏色變藍色
+                       self.greetingLabel.textColor = .blue
+                   }
+               } else {
+                   self.greetingLabel.text = "Hi!"
+                   self.greetingLabel.textColor = .blue
+               }
+           }
     }
     
     @objc private func logoutTapped() {
@@ -115,8 +160,13 @@ extension HomePageViewController: UICollectionViewDataSource, UICollectionViewDe
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
+        let item = items[indexPath.item]
         print("點到：\(items[indexPath.item].title)")
         // 導到對應頁面
+        if item.title == "我的預約" {
+            let vc = ReserveViewController()
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
 
